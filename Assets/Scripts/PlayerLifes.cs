@@ -9,7 +9,7 @@ public class PlayerLifes : MonoBehaviour
 
     public float resetDelay = 1f;
 
-    public Text livesText;
+  
 
     public GameObject gameOver;
     public GameObject youWon;
