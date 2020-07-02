@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerLifes : MonoBehaviour
 {
@@ -14,14 +15,6 @@ public class PlayerLifes : MonoBehaviour
     public GameObject gameOver;
     public GameObject youWon;
     
-    
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     void CheckGameOver()
     {
         if (lives < 1)
@@ -31,6 +24,16 @@ public class PlayerLifes : MonoBehaviour
             Invoke("Reset", resetDelay);
         }
     }
-    
+
+    void Reset()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Start Screen");
+    }
+
+    public void LoseLife()
+    {
+
+    }
 
 }
