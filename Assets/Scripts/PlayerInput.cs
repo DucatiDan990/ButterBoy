@@ -8,10 +8,14 @@ public class PlayerInput : MonoBehaviour
     public KeyCode Jump;
     private Rigidbody2D RB;
 
-
     public bool IsGrounded;
     public float MaxJump;
+
+    public float Speed;
+    Vector3 movement;
+
     private float CurrentJumpTime;
+
 
     private void Awake()
     {
@@ -26,6 +30,8 @@ public class PlayerInput : MonoBehaviour
         }
     }
     void Update()
+
+        // Jumping !!
     {
         if (Input.GetKey(Jump) && MaxJump > CurrentJumpTime)
         {
@@ -39,5 +45,16 @@ public class PlayerInput : MonoBehaviour
         {
             CurrentJumpTime = 0;
         }
+
+        // Movement !!
+
+        float moveHorizontal = Input.GetAxisRaw("Horizontal");
+
+        movement = new Vector3(moveHorizontal, 0f, 0f);
+
+        movement = movement * Speed * Time.deltaTime;
+
+        transform.position += movement;
+
     }
 }
