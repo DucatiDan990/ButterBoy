@@ -48,7 +48,9 @@ public class PlayerInput : MonoBehaviour
 
         // Movement !!
 
-        RB.velocity = new Vector2(Speed, RB.velocity.y);
+        var horizontal = (Input.GetAxisRaw("Horizontal") * Speed);
+
+        RB.velocity = new Vector2(horizontal, RB.velocity.y);
 
     }
 }
