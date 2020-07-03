@@ -9,7 +9,6 @@ public class PlayerInput : MonoBehaviour
     private Rigidbody2D RB;
 
     public bool IsGrounded;
-    bool jump = false;
     public float MaxJump;
 
     public float Speed;
@@ -25,14 +24,11 @@ public class PlayerInput : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground" && RB.velocity.y <= 0)
         {
             IsGrounded = true;
         }
     }
-
-
-
 
 
     void Update()
@@ -47,8 +43,6 @@ public class PlayerInput : MonoBehaviour
             IsGrounded = false;
 
             CurrentJumpTime += Time.deltaTime;
-
-            jump = true;
 
             if (animator != null)
             {
@@ -80,7 +74,7 @@ public class PlayerInput : MonoBehaviour
                 animator.SetTrigger("left");
             }
 
-            if (animator != null)
+            if (horizontal == 0)
             {
                 animator.SetTrigger("idle");
             }

@@ -33,6 +33,5 @@ public class PlayerLifes : MonoBehaviour
     public void LoseLife()
     {
         lives -= 1;
-
     }
 }
