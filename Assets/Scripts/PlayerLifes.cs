@@ -7,14 +7,13 @@ public class PlayerLifes : MonoBehaviour
 {
 
     public int lives = 3;
-
     public float resetDelay = 1f;
 
-  
+
 
     public GameObject gameOver;
     public GameObject youWon;
-    
+
     void CheckGameOver()
     {
         if (lives < 1)
@@ -33,7 +32,7 @@ public class PlayerLifes : MonoBehaviour
 
     public void LoseLife()
     {
+        lives -= 1;
 
     }
-
 }
