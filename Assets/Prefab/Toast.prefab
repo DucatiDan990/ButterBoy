@@ -79,9 +79,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   distance: 2
+  ToastDead: {fileID: 7930762774909770659, guid: 61be7becc6369cd4393efbaed3f5e0c6,
+    type: 3}
   changePosition: 1
   movingRight: 0
   groundDetection: {fileID: 8514042975864135281}
+  toastDistanceToGround: 0.7
 --- !u!61 &8514042975962411479
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -117,11 +120,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 8514042975962411476}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: bf0b4b626c1f09c4b811f48a072e4750, type: 2}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.004763216, y: 0.22343963}
+  m_Offset: {x: -0.00000015646219, y: 0.22343963}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -132,7 +135,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3463459, y: 0.040459335}
+  m_Size: {x: 0.40001816, y: 0.040459335}
   m_EdgeRadius: 0
 --- !u!1 &8514042976285097764
 GameObject:

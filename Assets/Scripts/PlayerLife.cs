@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class PlayerLifes : MonoBehaviour
+public class PlayerLife : MonoBehaviour
 {
 
     public int lives = 3;
-    public float resetDelay = 1f;
-
+    public int Toast = 14;
+    public float resetDelay = 0.4f;
+    public Text LivesText;
 
 
     public GameObject gameOver;
@@ -16,9 +18,19 @@ public class PlayerLifes : MonoBehaviour
 
     void CheckGameOver()
     {
-        if (lives < 1)
+        if (lives == 0)
         {
             gameOver.SetActive(true);
+            Time.timeScale = .25f;
+            Invoke("Reset", resetDelay);
+        }
+    }
+
+    public void wingame()
+    {
+        if (Toast == 0)
+        {
+            youWon.SetActive(true);
             Time.timeScale = .25f;
             Invoke("Reset", resetDelay);
         }
@@ -33,5 +45,12 @@ public class PlayerLifes : MonoBehaviour
     public void LoseLife()
     {
         lives -= 1;
+        LivesText.text = "Lives: " + lives;
+        CheckGameOver();
+    }
+
+    void Update()
+    {
+            
     }
 }

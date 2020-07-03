@@ -13,6 +13,8 @@ public class Patrol : MonoBehaviour
 
     public Transform groundDetection;
 
+    public float toastDistanceToGround;
+
     private void Update()
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
@@ -36,7 +38,8 @@ public class Patrol : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-         //collision.gameObject.GetComponent<PlayerLife>;
+            Debug.Log("HIT");
+            collision.gameObject.GetComponent<PlayerLife>().LoseLife();
         }
     }
 
@@ -44,8 +47,10 @@ public class Patrol : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            collision.gameObject.GetComponent<PlayerLife>().Toast--;
+            collision.gameObject.GetComponent<PlayerLife>().wingame();
             Destroy(gameObject);
-            Instantiate(ToastDead, transform.position, Quaternion.identity);
+            Instantiate(ToastDead, transform.position -= new Vector3(0, toastDistanceToGround, 0), Quaternion.identity);
         }
     }
 

@@ -7,9 +7,11 @@ public class PlayerInput : MonoBehaviour
 
     public KeyCode Jump;
     private Rigidbody2D RB;
+    
 
     public bool IsGrounded;
     public float MaxJump;
+    
 
     public float Speed;
     Vector3 movement;
@@ -30,7 +32,7 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-
+    
     void Update()
 
         // Jumping !!
